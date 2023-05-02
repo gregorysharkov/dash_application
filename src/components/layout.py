@@ -17,6 +17,9 @@ def create_main_layout(app: Dash, source: Source) -> html.Div:
             html.Hr(),
             render_slider(app, source, Schema.EXECUTION_TIMESTAMP),
             html.Hr(),
-            render_bar_chart(app, source),
+            render_bar_chart(app, source, Schema.HOLDING_DAYS),
+            render_bar_chart(app, source, Schema.LOWER),
+            render_bar_chart(app, source, Schema.AVERAGE, True),
+            render_bar_chart(app, source, Schema.HIGHER),
         ]
     )

@@ -10,7 +10,7 @@ from .schema import Schema
 def load_data(path: Path) -> pd.DataFrame:
     """loads data from the given path"""
 
-    data = pd.read_csv(path, sep=";")
+    data = pd.read_csv(path, sep=";", decimal=",")
     data[Schema.INTERNAL_ID] = range(len(data))
 
     data = column_to_date(data, Schema.EXECUTION_TIMESTAMP)
