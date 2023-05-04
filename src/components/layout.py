@@ -1,6 +1,6 @@
 """main application layout"""
 
-from dash import Dash, dcc, html
+from dash import Dash, html
 
 from ..data.data_source import Source
 from ..data.schema import Schema

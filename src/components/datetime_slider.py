@@ -1,15 +1,15 @@
 """datetime slider used to filter out rows of data"""
 
-from datetime import datetime
+# from datetime import datetime
 
 import pandas as pd
-from dash import Dash, Input, Output, dcc, html
+from dash import Dash, dcc, html
 
 from ..data.data_source import Source
 from . import ids
 
 
-def render_slider(app: Dash, source: Source, column: str) -> html.Div:
+def render_slider(_app: Dash, source: Source, column: str) -> html.Div:
     """generates code for the slider"""
 
     date_column = source.get_col(column)

@@ -4,11 +4,13 @@ main entry point
 from pathlib import Path
 
 from dash import Dash
-from dash_bootstrap_components.themes import BOOTSTRAP  # noqa
 
 from src.components.layout import create_main_layout
 from src.data.data_source import Source
 from src.data.loader import load_data
+
+# from dash_bootstrap_components.themes import BOOTSTRAP  # noqa
+
 
 DATA_PATH = Path() / "data" / "test_data.csv"
 
