@@ -1,5 +1,7 @@
 """data handling layer"""
 
+from __future__ import annotations
+
 from dataclasses import dataclass, field
 from datetime import datetime
 
@@ -18,6 +20,13 @@ class Source():
     """the class is responsible for handling the data source"""
     _data: pd.DataFrame
     text_label_attributes: list[str] = field(default_factory=lambda: DEFAULT_LABELS)  #type: ignore
+
+    def filter_dates(self, min_date: datetime, max_date: datetime) -> Source:
+        """filters data by datetime range"""
+        data_col = self._data[Schema.EXECUTION_TIMESTAMP].apply(lambda x: pd.Timestamp(x).timestamp())
+        condition = (data_col >= min_date.timestamp()) & (data_col <= max_date.timestamp())
+        filtered_data = self._data[condition]
+        return Source(filtered_data)
 
     def sort_by(self, column: str) -> pd.DataFrame:
         """sorts data by a column and adds a sort index column"""
@@ -38,6 +47,6 @@ class Source():
         max_date = self._data[column].max(axis=0)
         return min_date, max_date
     
-    @property
-    def label_attributes(self) -> pd.Series:
-        """generates a series that contains text labels to be added to the text"""
+    # @property
+    # def label_attributes(self) -> pd.Series:
+    #     """generates a series that contains text labels to be added to the text"""

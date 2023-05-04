@@ -22,5 +22,9 @@ def load_data(path: Path) -> pd.DataFrame:
 def column_to_date(data: pd.DataFrame, column: str) -> pd.DataFrame:
     """converts a given column into the datetime format"""
 
-    data[column] = pd.to_datetime(data[column], format='%a, %d %b %Y %H:%M:%S %Z')
+    data_column = data[column].str.slice(stop=-4)
+    data_column = pd.to_datetime(data_column, format='%a, %d %b %Y %H:%M:%S', utc=False)\
+        .dt.strftime('%a, %d %b %Y %H:%M:%S')
+    data_column = pd.to_datetime(data_column)
+    data[column] = data_column.dt.to_pydatetime()
     return data
