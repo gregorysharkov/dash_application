@@ -34,7 +34,6 @@ def render_bar_chart(app: Dash, source: Source, column: str, log_y: bool = False
 )
     def update_barchart(date_range: list[datetime]) -> html.Div:
         """updates barchart by leaving only filtered_values"""
-        print(date_range)
         min_date = datetime.fromtimestamp(date_range[0]) # type: ignore
         max_date = datetime.fromtimestamp(date_range[1]) # type: ignore
         data = source.filter_dates(min_date, max_date).sort_by(column=column)
