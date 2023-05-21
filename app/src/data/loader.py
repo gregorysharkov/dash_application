@@ -16,7 +16,7 @@ def load_data(path: Path) -> pd.DataFrame:
     data = column_to_date(data, Schema.EXECUTION_TIMESTAMP)
     data = column_to_date(data, Schema.LAUNCH_TIMESTAMP)
 
-    return data
+    return data[:1000]
 
 
 def column_to_date(data: pd.DataFrame, column: str) -> pd.DataFrame:

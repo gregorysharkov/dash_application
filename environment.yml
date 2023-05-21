@@ -46,4 +46,3 @@ dependencies:
   - zlib=1.2.13=h8cc25b3_0
   - pip:
     - dash-bootstrap-components==1.4.1
-prefix: C:\Users\grego\miniconda3\envs\dash_application

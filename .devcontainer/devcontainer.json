@@ -1,0 +1,14 @@
+// {"image":"mcr.microsoft.com/devcontainers/universal:2"}
+
+{
+    "name": "Python 3",
+    "build": {
+      "dockerfile": "Dockerfile",
+      "context": ".."
+    },
+    "remoteUser": "codespace",
+    "settings": {
+      "terminal.integrated.shell.linux": null
+    },
+    "extensions": []
+  }
